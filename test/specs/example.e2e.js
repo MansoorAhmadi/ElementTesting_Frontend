@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 describe("My Login application", () => {
   it("should open baseURL", async () => {
     //homepage
@@ -43,19 +45,19 @@ describe("My Login application", () => {
     //username
     const newUserUsername = $("#username");
     await newUserUsername.clearValue();
-    await newUserUsername.addValue("element.tester1");
+    await newUserUsername.addValue(process.env.USERNAME);
     await browser.pause(2000);
 
     //password
     const newUserPassword = $("#password");
     await newUserPassword.clearValue();
-    await newUserPassword.addValue("Nothing");
+    await newUserPassword.addValue(process.env.PASSWORD);
     await browser.pause(2000);
 
     //confirm password
     const newUserConfirmPassword = $("#password");
     await newUserConfirmPassword.clearValue();
-    await newUserConfirmPassword.addValue("Nothing");
+    await newUserConfirmPassword.addValue(process.env.PASSWORD);
     await browser.pause(2000);
 
     //submit
@@ -113,7 +115,7 @@ describe("My Login application", () => {
       "div.mleft-container div.key-requests-manager div.wrapper:nth-child(2) div.rows:nth-child(2) form:nth-child(2) > input.service.field-error"
     );
     keyRequestService.clearValue();
-    keyRequestService.addValue("dtQ0dW");
+    keyRequestService.addValue(process.env.SERVICE_CODE);
     await browser.pause(2000);
 
     //expires on
